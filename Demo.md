@@ -48,7 +48,11 @@ To check the complete info of one particular commit - > git show * (* = commit n
 To see the status -> git status
 To see the complete summary of the changes -> git log -- stat
 To check the difference between two commits -> git log -p -2 (in place of two you can specify number, checks from head to master) 
-To see the changes in one particular file -> git diff -- * (* = file name)
+To see the changes in one particular file in staged phase-> git diff --staged * (* = file name)
+
+To see the changes in one particular file in working directory not staged/untracked -> git diff  * (* = file name)
+To see the changes in one particular file in working directory not staged/untracked -> git diff -- *(* = file name)
+
 To check the difference between two commits -> git log -p -2 (in place of two you can specify number, checks from head to master) 
 To check commit messages only -> git shortlog 
 To see which person changed which line -> git blame * (* = file name)
