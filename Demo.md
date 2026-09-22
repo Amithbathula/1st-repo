@@ -53,15 +53,27 @@ To see the changes in one particular file in staged phase-> git diff --staged * 
 To see the changes in one particular file in working directory not staged/untracked -> git diff  * (* = file name)
 To see the changes in one particular file in working directory not staged/untracked -> git diff -- *(* = file name)
 
-To check the difference between two commits -> git log -p -2 (in place of two you can specify number, checks from head to master) 
 To check commit messages only -> git shortlog 
 To see which person changed which line -> git blame * (* = file name)
 To see the changes from one commit to another commit(master -> head) - > git diff -- *..* (1st * = commit id..2nd * = commit id)
 To check the changes from working tree to staging area -> git diff 
 To check the changes from staged area to local repo -> git diff --staged
 To check the changes from working area to local repo -> git diff --HEAD
-To see all the commits made by one particular person -> git log --online --author=*(*=name of that person)
+To see all the commits made by one particular person -> git log --oneline --author=*(*=name of that person)
 To move all the untracked files to tracked files -> git add .
 To move all the tracked files to local repo -> git commit -m "some msg here" .
 To edit the last commit message -> git commit --amend -m "enter the message here"
+
+To  change the previous commit messages -> git rebase -i HEAD~* (* = how many you want to open/change from head) -> after opening whatever message you want to change, change that to message from pick to reword -> wq! to save
+To combine multiple commits into a single consolidated commit  -> git rebase -i HEAD~* (* = how many you want to open/change from head) -> after opening whatever message you want to change, change that to message from pick to squash -> esc(key)  :wq! 
+
+
+To delete the commit message along with the data added in that commit-> git reset --hard HEAD~* (if you put 1 it will delete 1st commit message, 2 means 2 message will be deleted)
+
+To go to the previous version (commit and data) -> git checkout commit_id(you wanted to go) -- file.name
+To go to the file which just you have deleted but showing in staged area -> git checkout HEAD -- file.name
+To discard the changes in working directory -> git restore file.name
+To discard the changes in staged area and bring it back to unstaged area -> git restore --staged filename
+
+
 
